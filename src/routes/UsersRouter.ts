@@ -1,6 +1,6 @@
 import {UsersModel} from "../models/UsersModel";
-import {Router, ExpressRouter} from "typed-api/dist/src/routes/ExpressRouter";
-import {ExpressApplication} from "typed-api/dist/src/libs/ExpressApplication";
+import {Router, ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
+import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
 
 /**
  * Rotas para Users

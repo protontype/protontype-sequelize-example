@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc",
+    "node-start": "nodemon dist/Main.js",
+    "start": "concurrent \"npm run tsc\" \"npm run node-start\" ",
+    "postinstall": "typings install"
   },
-  "author": "",
+  "author": "Humberto Machado",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -14,5 +17,11 @@
     "sequelize": "^3.23.6",
     "sqlite3": "^3.1.4",
     "typed-api": "^1.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^2.2.0",
+    "nodemon": "^1.9.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.1"
   }
 }

@@ -1,8 +1,8 @@
 import * as DataTypes from "sequelize"
-import {SequelizeDB} from "typed-api/dist/src/libs/SequelizeDB";
-import {BaseModel} from "typed-api/dist/src/models/BaseModel";
+import {SequelizeDB} from "typed-api/dist/api/libs/SequelizeDB";
+import {BaseModel} from "typed-api/dist/api/models/BaseModel";
 import {UsersModel} from "./UsersModel";
-import {Model} from "typed-api/dist/src/libs/SequelizeModelLoader";
+import {Model} from "typed-api/dist/api/libs/SequelizeModelLoader";
 
 @Model({
     name: TasksModel.MODEL_NAME,

@@ -1,4 +1,4 @@
-import {ExpressRouter} from "typed-api/dist/src/routes/ExpressRouter";
+import {ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
 
 export class DefaultRouter extends ExpressRouter {
 

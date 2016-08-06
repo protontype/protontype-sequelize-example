@@ -1,5 +1,5 @@
-import {ExpressApplication} from "typed-api/dist/src/libs/ExpressApplication";
-import {DefaultMiddleware} from "typed-api/dist/src/middlewares/DefaultMiddleware";
+import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
+import {DefaultMiddleware} from "typed-api/dist/api/middlewares/DefaultMiddleware";
 import {DefaultRouter} from "./routes/DefaultRouter";
 import {TasksRouter} from "./routes/TasksRouter";
 import {UsersRouter} from "./routes/UsersRouter";

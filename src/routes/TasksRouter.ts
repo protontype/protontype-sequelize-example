@@ -1,6 +1,6 @@
 import {TasksModel} from "../models/TasksModel";
-import {ExpressRouter, Router} from "typed-api/dist/src/routes/ExpressRouter";
-import {ExpressApplication} from "typed-api/dist/src/libs/ExpressApplication";
+import {ExpressRouter, Router} from "typed-api/dist/api/routes/ExpressRouter";
+import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
 
 /**
  * Rotas para Taks
