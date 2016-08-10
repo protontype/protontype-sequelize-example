@@ -16,7 +16,7 @@ import {Model} from "typed-api/dist/api/libs/SequelizeModelLoader";
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                DataTypes: true
+                notEmpty: true
             }
         },
         done: {

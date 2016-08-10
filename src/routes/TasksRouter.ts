@@ -1,61 +1,79 @@
 import {TasksModel} from "../models/TasksModel";
-import {ExpressRouter, Router} from "typed-api/dist/api/routes/ExpressRouter";
+import {ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
+import {Method} from "typed-api/dist/api/routes/Method";
 import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
+import {Route} from "typed-api/dist/api/libs/RouteConfigLoader";
 
 /**
  * Rotas para Taks
  */
-@Router({
-    modelName: TasksModel.MODEL_NAME
-})
 export class TasksRouter extends ExpressRouter {
 
-    constructor(expressApplication:ExpressApplication) {
-        super(expressApplication);
+    public getBaseUrl(): string {
+        return '/tasks';
     }
 
-    public start():void {
-        this.addTaskRoutes();
-        console.log(">>> Rotas para Tasks carregadas <<<");
+    @Route({
+        method: Method.GET,
+        endpoint: '/',
+        modelName: TasksModel.MODEL_NAME
+    })
+    public findAll(req, res, model) {
+        model.findAll({})
+            .then(result => res.json(result))
+            .catch(error => this.sendErrorMessage(res, error));
     }
 
-    private addTaskRoutes():void {
-        this.express.route("/tasks")
-            .get((req, res) => {
-                this.model.findAll({})
-                    .then(result => res.json(result))
-                    .catch(error => this.sendErrorMessage(res, error));
-            })
-            .post((req, res) => {
-                this.model.create(req.body)
-                    .then(result => res.json(result))
-                    .catch(error => this.sendErrorMessage(res, error));
-            });
+    @Route({
+        method: Method.POST,
+        endpoint: '/',
+        modelName: TasksModel.MODEL_NAME
+    })
+    public create(req, res, model) {
+        model.create(req.body)
+            .then(result => res.json(result))
+            .catch(error => this.sendErrorMessage(res, error));
+    }
 
-        this.express.route("/tasks/:id")
-            .get((req, res) => {
-                this.model.findOne({where: req.params})
-                    .then(result => {
-                        if (result) {
-                            res.json(result);
-                        } else {
-                            res.sendStatus(404);
-                        }
-                    })
-                    .catch(error => this.sendErrorMessage(res, error));
-
+    @Route({
+        method: Method.GET,
+        endpoint: '/:id',
+        modelName: TasksModel.MODEL_NAME
+    })
+    public findOne(req, res, model) {
+        model.findOne({ where: req.params })
+            .then(result => {
+                if (result) {
+                    res.json(result);
+                } else {
+                    res.sendStatus(404);
+                }
             })
-            .put((req, res) => {
-                this.model.update(req.body, {where: req.params})
-                    .then(result => res.sendStatus(204))
-                    .catch(error => this.sendErrorMessage(res, error));
+            .catch(error => this.sendErrorMessage(res, error));
+    }
 
-            })
-            .delete((req, res) => {
-                this.model.destroy({where: req.params})
-                    .then(result => res.sendStatus(204))
-                    .catch(error => this.sendErrorMessage(res, error));
-            });
+    @Route({
+        method: Method.PUT,
+        endpoint: '/:id',
+        modelName: TasksModel.MODEL_NAME
+    })
+    public update(req, res, model) {
+        model.update(req.body, { where: req.params })
+            .then(result => res.sendStatus(204))
+            .catch(error => this.sendErrorMessage(res, error));
+    }
+
+    @Route({
+        method: Method.DELETE,
+        endpoint: '/:id',
+        modelName: TasksModel.MODEL_NAME
+    })
+    public delete(req, res, model) {
+        model.destroy({ where: req.params })
+            .then(result => res.sendStatus(204))
+            .catch(error => this.sendErrorMessage(res, error));
     }
 }
+
+
 

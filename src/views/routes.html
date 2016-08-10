@@ -1,7 +1,6 @@
 <html>
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css">
 
 <body>
@@ -17,7 +16,7 @@
             </thead>
             <tbody>
                 <tr v-for="route in routes">
-                    <td class="selectable"> <a href="http://localhost:3000{{ route.path }}"> {{ route.path }} </a></td>
+                    <td class="selectable"> <a href="http://localhost:3000{{ route.path }}"> {{ route.method }} : {{ route.path }} </a></td>
                 </tr>
             </tbody>
         </table>
