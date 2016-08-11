@@ -73,4 +73,3 @@ export class UsersRouter extends ExpressRouter {
             .catch(error => this.sendErrorMessage(res, error));
     }
 }
-

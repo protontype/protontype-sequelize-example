@@ -74,6 +74,3 @@ export class TasksRouter extends ExpressRouter {
             .catch(error => this.sendErrorMessage(res, error));
     }
 }
-
-
-

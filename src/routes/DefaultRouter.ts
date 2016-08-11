@@ -1,5 +1,8 @@
 import {ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
 import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
+import {Method} from "typed-api/dist/api/routes/Method";
+import {Route} from "typed-api/dist/api/libs/RouteConfigLoader";
+import {TasksModel} from "../models/TasksModel";
 /**
  * @author Humberto Machado
  * Example custom routes using express instance directly
@@ -15,14 +18,14 @@ export class DefaultRouter extends ExpressRouter {
         this.express.get("/", (req, res) =>
             res.sendFile('routes.html', { "root": "./src/views" })
         );
-
-        this.express.get("/routes", (req, res) =>
-            res.json(this.listRoutes())
-        );
         console.log(">>> Rotas Default carregadas <<<");
     }
 
-    private listRoutes(): any[] {
+    @Route({
+        method: Method.GET,
+        endpoint: 'routes'
+    })
+    public listRoutes(req, res, model) {
         let routes: any[] = [];
         this.express._router.stack.forEach(r => {
             if (r.route && r.route.path) {
@@ -32,6 +35,6 @@ export class DefaultRouter extends ExpressRouter {
                 });
             }
         });
-        return routes;
+        res.json(routes);
     }
 }
