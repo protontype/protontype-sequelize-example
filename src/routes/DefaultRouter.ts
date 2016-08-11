@@ -1,6 +1,9 @@
 import {ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
 import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
-
+/**
+ * @author Humberto Machado
+ * Example custom routes using express instance directly
+ */
 export class DefaultRouter extends ExpressRouter {
 
     public getBaseUrl(): string {

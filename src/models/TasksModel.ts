@@ -3,7 +3,10 @@ import {SequelizeDB} from "typed-api/dist/api/libs/SequelizeDB";
 import {BaseModel} from "typed-api/dist/api/models/BaseModel";
 import {UsersModel} from "./UsersModel";
 import {Model} from "typed-api/dist/api/libs/SequelizeModelLoader";
-
+/**
+ * @author Humberto Machado
+ *
+ */
 @Model({
     name: TasksModel.MODEL_NAME,
     definition: {
