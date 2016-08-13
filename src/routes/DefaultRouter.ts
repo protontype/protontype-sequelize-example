@@ -2,7 +2,6 @@ import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
 import {ExpressApplication} from "typed-api/dist/libs/ExpressApplication";
 import {Method} from "typed-api/dist/routes/Method";
 import {Route} from "typed-api/dist/libs/RouteConfigLoader";
-import {TasksModel} from "../models/TasksModel";
 /**
  * @author Humberto Machado
  * Example custom routes using express instance directly
