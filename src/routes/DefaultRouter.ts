@@ -1,7 +1,7 @@
-import {ExpressRouter} from "typed-api/dist/api/routes/ExpressRouter";
-import {ExpressApplication} from "typed-api/dist/api/libs/ExpressApplication";
-import {Method} from "typed-api/dist/api/routes/Method";
-import {Route} from "typed-api/dist/api/libs/RouteConfigLoader";
+import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
+import {ExpressApplication} from "typed-api/dist/libs/ExpressApplication";
+import {Method} from "typed-api/dist/routes/Method";
+import {Route} from "typed-api/dist/libs/RouteConfigLoader";
 import {TasksModel} from "../models/TasksModel";
 /**
  * @author Humberto Machado
