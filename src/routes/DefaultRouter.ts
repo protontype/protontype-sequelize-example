@@ -1,12 +1,17 @@
+import { BaseModel } from 'typed-api/dist/models/BaseModel';
 import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
 import {ExpressApplication} from "typed-api/dist/libs/ExpressApplication";
 import {Method} from "typed-api/dist/routes/Method";
 import {Route} from "typed-api/dist/libs/RouteConfigLoader";
 /**
  * @author Humberto Machado
- * Example custom routes using express instance directly
+ * Example custom routes using express instance directly mixing with @Route function configuration
  */
 export class DefaultRouter extends ExpressRouter {
+
+    public getModelInstances(): BaseModel[] {
+        return [];
+    }
 
     public getBaseUrl(): string {
         return "/";
@@ -17,7 +22,7 @@ export class DefaultRouter extends ExpressRouter {
         this.express.get("/", (req, res) =>
             res.sendFile('routes.html', { "root": "./src/views" })
         );
-        console.log(">>> Rotas Default carregadas <<<");
+        console.log(">>>> Default routes loaded <<<<");
     }
 
     @Route({

@@ -34,6 +34,5 @@ export class TasksModel extends BaseModel {
 
     public associate(sequelizeDB: SequelizeDB): void {
         this.model.belongsTo(sequelizeDB.getModel(UsersModel.MODEL_NAME));
-        console.log('Associado models a TASK');
     }
 }

@@ -43,8 +43,7 @@ import {Model} from "typed-api/dist/libs/SequelizeModelLoader";
 export class UsersModel extends BaseModel {
     public static MODEL_NAME = 'Users';
 
-    public associate(sequelizeDB:SequelizeDB):void {
+    public associate(sequelizeDB: SequelizeDB): void {
         this.model.hasMany(sequelizeDB.getModel(TasksModel.MODEL_NAME));
-        console.log('Associado models a USER');
     }
 }

@@ -1,3 +1,4 @@
+import {BaseModel} from "typed-api/dist/models/BaseModel";
 import {TasksModel} from "../models/TasksModel";
 import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
 import {Method} from "typed-api/dist/routes/Method";
@@ -9,13 +10,17 @@ import {Route} from "typed-api/dist/libs/RouteConfigLoader";
  */
 export class TasksRouter extends ExpressRouter {
 
+    public getModelInstances(): BaseModel[] {
+        return [new TasksModel()];
+    }
+
     public getBaseUrl(): string {
         return '/tasks';
     }
 
     @Route({
         method: Method.GET,
-        endpoint: '/',
+        endpoint: '',
         modelName: TasksModel.MODEL_NAME
     })
     public findAllTasks(req, res, model) {
@@ -26,7 +31,7 @@ export class TasksRouter extends ExpressRouter {
 
     @Route({
         method: Method.POST,
-        endpoint: '/',
+        endpoint: '',
         modelName: TasksModel.MODEL_NAME
     })
     public createTask(req, res, model) {
@@ -41,7 +46,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public findOneTask(req, res, model) {
-        model.findOne({where: req.params})
+        model.findOne({ where: req.params })
             .then(result => {
                 if (result) {
                     res.json(result);
@@ -58,7 +63,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public updateTask(req, res, model) {
-        model.update(req.body, {where: req.params})
+        model.update(req.body, { where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -69,7 +74,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public deleteTask(req, res, model) {
-        model.destroy({where: req.params})
+        model.destroy({ where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }
