@@ -8,15 +8,15 @@
         <table class="ui green selectable celled table ">
             <thead class="center aligned">
                 <tr>
-                    <th>NTask API TEste</th>
+                    <th>Protontyped API TEste</th>
                 </tr>
                 <tr>
-                    <th>Lista de Rotas Usando VueJS</th>
+                    <th>Routes</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="route in routes">
-                    <td class="selectable"> <a href="http://localhost:3000{{ route.path }}"> {{ route.method }} : {{ route.path }} </a></td>
+                    <td class="selectable"> <a href="http://192.168.0.24:3000{{ route.path }}"> {{ route.method }} : {{ route.path }} </a></td>
                 </tr>
             </tbody>
         </table>
