@@ -1,8 +1,8 @@
-import { BaseModel } from 'typed-api/dist/models/BaseModel';
-import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
-import {ExpressApplication} from "typed-api/dist/libs/ExpressApplication";
-import {Method} from "typed-api/dist/routes/Method";
-import {Route} from "typed-api/dist/libs/RouteConfigLoader";
+import { BaseModel } from 'protontype-api/dist/models/BaseModel';
+import {ExpressRouter} from "protontype-api/dist/routes/ExpressRouter";
+import {ExpressApplication} from "protontype-api/dist/libs/ExpressApplication";
+import {Method} from "protontype-api/dist/routes/Method";
+import {Route} from "protontype-api/dist/libs/RouteConfigLoader";
 /**
  * @author Humberto Machado
  * Example custom routes using express instance directly mixing with @Route function configuration

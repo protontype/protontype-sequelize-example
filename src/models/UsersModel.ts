@@ -1,8 +1,8 @@
 import * as DataTypes from "sequelize"
-import {SequelizeDB} from "typed-api/dist/libs/SequelizeDB";
-import {BaseModel} from "typed-api/dist/models/BaseModel";
+import {SequelizeDB} from "protontype-api/dist/libs/SequelizeDB";
+import {BaseModel} from "protontype-api/dist/models/BaseModel";
 import {TasksModel} from "./TasksModel";
-import {Model} from "typed-api/dist/libs/SequelizeModelLoader";
+import {Model} from "protontype-api/dist/libs/SequelizeModelLoader";
 
 /**
  * @author Humberto Machado

@@ -1,6 +1,6 @@
-import {BaseModel} from "typed-api/dist/models/BaseModel";
+import {BaseModel} from "protontype-api/dist/models/BaseModel";
 import {UsersModel} from "../models/UsersModel";
-import {BaseCrudRouter} from "typed-api/dist/routes/BaseCrudRouter";
+import {BaseCrudRouter} from "protontype-api/dist/routes/BaseCrudRouter";
 
 /**
  * @author Humberto Machado

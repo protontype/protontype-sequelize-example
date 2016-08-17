@@ -1,8 +1,8 @@
-import {BaseModel} from "typed-api/dist/models/BaseModel";
+import {BaseModel} from "protontype-api/dist/models/BaseModel";
 import {TasksModel} from "../models/TasksModel";
-import {ExpressRouter} from "typed-api/dist/routes/ExpressRouter";
-import {Method} from "typed-api/dist/routes/Method";
-import {Route} from "typed-api/dist/libs/RouteConfigLoader";
+import {ExpressRouter} from "protontype-api/dist/routes/ExpressRouter";
+import {Method} from "protontype-api/dist/routes/Method";
+import {Route} from "protontype-api/dist/libs/RouteConfigLoader";
 
 /**
  * @author Humberto Machado
