@@ -23,8 +23,8 @@ export class TasksRouter extends ExpressRouter {
         endpoint: '',
         modelName: TasksModel.MODEL_NAME
     })
-    public findAllTasks(req, res, model) {
-        model.findAll({})
+    public findAllTasks(req, res, tasks: TasksModel) {
+        tasks.find({})
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -34,8 +34,8 @@ export class TasksRouter extends ExpressRouter {
         endpoint: '',
         modelName: TasksModel.MODEL_NAME
     })
-    public createTask(req, res, model) {
-        model.create(req.body)
+    public createTask(req, res, tasks: TasksModel) {
+        tasks.create(req.body)
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -45,8 +45,8 @@ export class TasksRouter extends ExpressRouter {
         endpoint: '/:id',
         modelName: TasksModel.MODEL_NAME
     })
-    public findOneTask(req, res, model) {
-        model.findOne({ where: req.params })
+    public findOneTask(req, res, tasks: TasksModel) {
+        tasks.findOne({ where: req.params })
             .then(result => {
                 if (result) {
                     res.json(result);
@@ -62,8 +62,8 @@ export class TasksRouter extends ExpressRouter {
         endpoint: '/:id',
         modelName: TasksModel.MODEL_NAME
     })
-    public updateTask(req, res, model) {
-        model.update(req.body, { where: req.params })
+    public updateTask(req, res, tasks: TasksModel) {
+        tasks.update(req.body, { where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -73,8 +73,8 @@ export class TasksRouter extends ExpressRouter {
         endpoint: '/:id',
         modelName: TasksModel.MODEL_NAME
     })
-    public deleteTask(req, res, model) {
-        model.destroy({ where: req.params })
+    public deleteTask(req, res, tasks: TasksModel) {
+        tasks.destroy({ where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }

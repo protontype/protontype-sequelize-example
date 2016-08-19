@@ -33,6 +33,6 @@ export class TasksModel extends BaseModel {
     public static MODEL_NAME = 'Tasks';
 
     public associate(sequelizeDB: SequelizeDB): void {
-        this.model.belongsTo(sequelizeDB.getModel(UsersModel.MODEL_NAME));
+        this.model.belongsTo(sequelizeDB.getModel(UsersModel.MODEL_NAME).getNativeInstance());
     }
 }

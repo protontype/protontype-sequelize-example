@@ -44,6 +44,6 @@ export class UsersModel extends BaseModel {
     public static MODEL_NAME = 'Users';
 
     public associate(sequelizeDB: SequelizeDB): void {
-        this.model.hasMany(sequelizeDB.getModel(TasksModel.MODEL_NAME));
+        this.model.hasMany(sequelizeDB.getModel(TasksModel.MODEL_NAME).getNativeInstance());
     }
 }
