@@ -1,6 +1,5 @@
-import * as DataTypes from "sequelize"
 import {SequelizeDB} from "protontype-api/dist/libs/SequelizeDB";
-import {BaseModel} from "protontype-api/dist/models/BaseModel";
+import {BaseModel, DataTypes} from "protontype-api/dist/models/BaseModel";
 import {TasksModel} from "./TasksModel";
 import {Model} from "protontype-api/dist/libs/SequelizeModelLoader";
 
@@ -44,6 +43,6 @@ export class UsersModel extends BaseModel {
     public static MODEL_NAME = 'Users';
 
     public associate(sequelizeDB: SequelizeDB): void {
-        this.getNativeInstance().hasMany(sequelizeDB.getModel(TasksModel.MODEL_NAME).getNativeInstance());
+        this.getInstance().hasMany(sequelizeDB.getModel(TasksModel.MODEL_NAME).getInstance());
     }
 }

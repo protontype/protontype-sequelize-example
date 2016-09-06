@@ -31,7 +31,8 @@ export class DefaultRouter extends ExpressRouter {
     })
     public listRoutes(req, res, model) {
         let routes: any[] = [];
-        this.express._router.stack.forEach(r => {
+        let express: any = this.express;
+        express._router.stack.forEach(r => {
             if (r.route && r.route.path) {
                 routes.push({
                     method: r.route.stack[0].method.toUpperCase(),

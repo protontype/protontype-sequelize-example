@@ -24,7 +24,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public findAllTasks(req, res, tasks: TasksModel) {
-        tasks.find({})
+        tasks.getInstance().find({})
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -35,7 +35,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public createTask(req, res, tasks: TasksModel) {
-        tasks.create(req.body)
+        tasks.getInstance().create(req.body)
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -46,7 +46,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public findOneTask(req, res, tasks: TasksModel) {
-        tasks.findOne({ where: req.params })
+        tasks.getInstance().findOne({ where: req.params })
             .then(result => {
                 if (result) {
                     res.json(result);
@@ -63,7 +63,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public updateTask(req, res, tasks: TasksModel) {
-        tasks.update(req.body, { where: req.params })
+        tasks.getInstance().update(req.body, { where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }
@@ -74,7 +74,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public deleteTask(req, res, tasks: TasksModel) {
-        tasks.destroy({ where: req.params })
+        tasks.getInstance().destroy({ where: req.params })
             .then(result => res.sendStatus(204))
             .catch(error => this.sendErrorMessage(res, error));
     }
