@@ -24,7 +24,7 @@ export class TasksRouter extends ExpressRouter {
         modelName: TasksModel.MODEL_NAME
     })
     public findAllTasks(req, res, tasks: TasksModel) {
-        tasks.getInstance().find({})
+        tasks.getInstance().findAll({})
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }

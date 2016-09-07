@@ -26,7 +26,7 @@ export class UsersRouter extends BaseCrudRouter {
     })
     public tasksFromUser(req, res) {
         let tasks: TasksModel = this.getModel<TasksModel>(TasksModel.MODEL_NAME);
-        tasks.getInstance().find({where: req.params})
+        tasks.getInstance().findAll({where: req.params})
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error))
     }
