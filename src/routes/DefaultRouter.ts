@@ -5,7 +5,7 @@ import {Method} from "protontype-api/dist/routes/Method";
 import {Route} from "protontype-api/dist/libs/RouteConfigLoader";
 /**
  * @author Humberto Machado
- * Example custom routes using express instance directly mixing with @Route function configuration
+ * Example custom routes using router instance directly mixing with @Route decorator
  */
 export class DefaultRouter extends ExpressRouter {
 
@@ -17,28 +17,18 @@ export class DefaultRouter extends ExpressRouter {
         return "/";
     }
 
-    public init(expressApplication: ExpressApplication): void {
-        super.init(expressApplication);
-        this.express.get("/", (req, res) =>
-            res.sendFile('routes.html', { "root": "./src/views" })
-        );
-        console.log(">>>> Default routes loaded <<<<");
-    }
-
     @Route({
         method: Method.GET,
         endpoint: 'routes'
     })
-    public listRoutes(req, res, model) {
-        let routes: any[] = [];
-        this.express._router.stack.forEach(r => {
-            if (r.route && r.route.path) {
-                routes.push({
-                    method: r.route.stack[0].method.toUpperCase(),
-                    path: r.route.path
-                });
-            }
-        });
-        res.json(routes);
+    public listRoutes(req, res, model): void {
+        res.json(this.expressApplication.getRoutesList());
+    }
+
+    @Route()
+    public rootRoute(): void {
+        this.router.get("", (req, res) =>
+            res.sendFile('routes.html', { "root": "./src/views" })
+        );
     }
 }

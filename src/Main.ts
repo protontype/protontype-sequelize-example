@@ -7,7 +7,6 @@ import {DefaultRouter} from "./routes/DefaultRouter";
  * @author Humberto Machado
  *
  */
-
 let expressApp = new ExpressApplication();
 expressApp
     .addMiddleware(new DefaultMiddleware())
