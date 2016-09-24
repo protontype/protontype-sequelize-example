@@ -1,9 +1,9 @@
-import {BaseModel} from "protontype-api/dist/models/BaseModel";
+import {BaseModel} from "protontype/dist/models/BaseModel";
 import {UsersModel} from "../models/UsersModel";
-import {BaseCrudRouter} from "protontype-api/dist/routes/BaseCrudRouter";
-import {Method} from "protontype-api/dist/routes/Method";
+import {BaseCrudRouter} from "protontype/dist/routes/BaseCrudRouter";
+import {Method} from "protontype/dist/routes/Method";
 import {TasksModel} from "../models/TasksModel";
-import {Route} from "protontype-api/dist/libs/RouteConfigLoader";
+import {Route} from "protontype/dist/libs/RouteConfigLoader";
 
 /**
  * @author Humberto Machado

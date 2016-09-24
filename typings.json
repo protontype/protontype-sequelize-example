@@ -1,5 +1,5 @@
 {
-  "name": "ntask-api",
+  "name": "protontype-example",
   "dependencies": {},
   "globalDependencies": {
     "bluebird": "registry:dt/bluebird#2.0.0+20160701023356",
