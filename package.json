@@ -1,6 +1,6 @@
 {
   "name": "typed-api-example",
-  "version": "1.0.0",
+  "version": "0.5.0-alpha",
   "description": "",
   "main": "index.js",
   "scripts": {
