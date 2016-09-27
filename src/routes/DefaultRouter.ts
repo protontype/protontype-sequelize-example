@@ -1,8 +1,4 @@
-import { BaseModel } from 'protontype/dist/models/BaseModel';
-import {ExpressRouter} from "protontype/dist/routes/ExpressRouter";
-import {ExpressApplication} from "protontype/dist/libs/ExpressApplication";
-import {Method} from "protontype/dist/routes/Method";
-import {Route} from "protontype/dist/libs/RouteConfigLoader";
+import {BaseModel, ExpressRouter, Method, Route} from 'protontype';
 /**
  * @author Humberto Machado
  * Example custom routes using router instance directly mixing with @Route decorator

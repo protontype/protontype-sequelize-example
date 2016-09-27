@@ -1,5 +1,4 @@
-import {ExpressApplication} from "protontype/dist/libs/ExpressApplication";
-import {DefaultMiddleware} from "protontype/dist/middlewares/DefaultMiddleware";
+import {ExpressApplication, DefaultMiddleware} from "protontype";
 import {TasksRouter} from "./routes/TasksRouter";
 import {UsersRouter} from "./routes/UsersRouter";
 import {DefaultRouter} from "./routes/DefaultRouter";

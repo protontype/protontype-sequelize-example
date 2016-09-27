@@ -1,7 +1,5 @@
-import {SequelizeDB} from "protontype/dist/libs/SequelizeDB";
-import {BaseModel, DataTypes} from "protontype/dist/models/BaseModel";
+import {SequelizeDB, BaseModel, DataTypes, Model} from "protontype";
 import {UsersModel} from "./UsersModel";
-import {Model} from "protontype/dist/libs/SequelizeModelLoader";
 
 /**
  * @author Humberto Machado

@@ -1,8 +1,8 @@
-import {BaseModel} from "protontype/dist/models/BaseModel";
+import {BaseModel} from "protontype";
 import {TasksModel} from "../models/TasksModel";
-import {ExpressRouter} from "protontype/dist/routes/ExpressRouter";
-import {Method} from "protontype/dist/routes/Method";
-import {Route} from "protontype/dist/libs/RouteConfigLoader";
+import {ExpressRouter} from "protontype";
+import {Method} from "protontype";
+import {Route} from "protontype";
 
 /**
  * @author Humberto Machado
