@@ -16,7 +16,7 @@
     "express": "^4.14.0",
     "sequelize": "^3.24.1",
     "sqlite3": "^3.1.4",
-    "protontype": "^0.5.0-alpha",
+    "protontype": "^0.5.1-alpha",
     "@types/body-parser": "0.0.33",
     "@types/express": "^4.0.33",
     "@types/node": "^6.0.41",
