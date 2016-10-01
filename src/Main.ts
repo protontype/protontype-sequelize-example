@@ -2,6 +2,7 @@ import {ExpressApplication, DefaultMiddleware} from "protontype";
 import {TasksRouter} from "./routes/TasksRouter";
 import {UsersRouter} from "./routes/UsersRouter";
 import {DefaultRouter} from "./routes/DefaultRouter";
+import {JWTAuthMiddleware} from "./middlewares/JWTAuthMiddleware";
 /**
  * @author Humberto Machado
  *
@@ -9,6 +10,7 @@ import {DefaultRouter} from "./routes/DefaultRouter";
 let expressApp = new ExpressApplication();
 expressApp
     .addMiddleware(new DefaultMiddleware())
+    .addMiddleware(new JWTAuthMiddleware())
     .addRouter(new DefaultRouter())
     .addRouter(new TasksRouter())
     .addRouter(new UsersRouter())

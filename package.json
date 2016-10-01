@@ -14,13 +14,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "sequelize": "^3.24.1",
-    "sqlite3": "^3.1.4",
+    "jwt-simple": "^0.4.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.0.0",
     "protontype": "^0.5.1-alpha",
-    "@types/body-parser": "0.0.33",
-    "@types/express": "^4.0.33",
-    "@types/node": "^6.0.41",
-    "@types/sequelize": "^3.4.35"
+    "sequelize": "^3.24.1",
+    "sqlite3": "^3.1.4"
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
