@@ -1,4 +1,5 @@
-import { BaseModel, ExpressRouter, Method, Route } from "protontype";
+import { JWTAuthentication } from './../auth/JWTAuthentication';
+import { BaseModel, ExpressRouter, Method, Route, ExpressApplication } from "protontype";
 import { TasksModel } from "../models/TasksModel";
 
 /**
@@ -13,6 +14,14 @@ export class TasksRouter extends ExpressRouter {
 
     public getBaseUrl(): string {
         return '/tasks';
+    }
+
+     public init(expressApplication: ExpressApplication) {
+        super.init(expressApplication);
+        this.express.all("/tasks", (req, res, next) => {
+            new JWTAuthentication(expressApplication).authenticate();
+            next();
+        })
     }
 
     @Route({

@@ -7,13 +7,13 @@ import * as passport from "passport";
 
 export class JWTAuthentication {
     private passport: passport.Passport;
-
+    private conf: SpecificConfig = Config;
     constructor(application: ExpressApplication) {
         this.passport = passport;
         let userModel: UsersModel = application.getModel<UsersModel>(UsersModel.MODEL_NAME);
-        let conf: SpecificConfig = Config;
+
         let params: StrategyOptions = {
-            secretOrKey: conf.jwtSecret,
+            secretOrKey: this.conf.jwtSecret,
             jwtFromRequest: ExtractJwt.fromAuthHeader()
         };
 
@@ -33,8 +33,16 @@ export class JWTAuthentication {
         this.passport.use(strategy);
     }
 
+    public authenticate() {
+        this.passport.authenticate("jwt", this.conf.jwtSession);
+    }
+
     public getPassport(): passport.Passport {
         return this.passport;
+    }
+
+    public getConfig(): SpecificConfig {
+        return this.conf;
     }
 
 }
