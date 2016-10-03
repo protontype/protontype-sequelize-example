@@ -18,10 +18,7 @@ export class TasksRouter extends ExpressRouter {
 
      public init(expressApplication: ExpressApplication) {
         super.init(expressApplication);
-        this.express.all("/tasks", (req, res, next) => {
-            new JWTAuthentication(expressApplication).authenticate();
-            next();
-        })
+        this.express.all("/tasks", new JWTAuthentication(expressApplication).authenticate());
     }
 
     @Route({

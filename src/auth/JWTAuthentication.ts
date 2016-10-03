@@ -4,6 +4,7 @@ import { Middleware } from 'protontype';
 import { Config, GlobalConfig, ExpressApplication } from "protontype";
 import { Strategy, StrategyOptions, ExtractJwt, VerifiedCallback } from "passport-jwt";
 import * as passport from "passport";
+import * as express from "express";
 
 export class JWTAuthentication {
     private passport: passport.Passport;
@@ -33,8 +34,8 @@ export class JWTAuthentication {
         this.passport.use(strategy);
     }
 
-    public authenticate() {
-        this.passport.authenticate("jwt", this.conf.jwtSession);
+    public authenticate(): express.Handler {
+        return this.passport.authenticate("jwt", this.conf.jwtSession);
     }
 
     public getPassport(): passport.Passport {
