@@ -1,5 +1,5 @@
-import {SequelizeDB, BaseModel, DataTypes, Model} from "protontype";
-import {UsersModel} from "./UsersModel";
+import { SequelizeDB, BaseModel, DataTypes, Model } from "protontype";
+import { UsersModel } from "./UsersModel";
 
 /**
  * @author Humberto Machado

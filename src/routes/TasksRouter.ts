@@ -1,4 +1,4 @@
-import { JWTAuthentication } from './../auth/JWTAuthentication';
+import { JWTAuthMiddleware } from './../middlewares/JWTAuthMiddleware';
 import { BaseModel, ExpressRouter, Method, Route, ExpressApplication } from "protontype";
 import { TasksModel } from "../models/TasksModel";
 
@@ -16,18 +16,14 @@ export class TasksRouter extends ExpressRouter {
         return '/tasks';
     }
 
-     public init(expressApplication: ExpressApplication) {
-        super.init(expressApplication);
-        this.express.all("/tasks", new JWTAuthentication(expressApplication).authenticate());
-    }
-
     @Route({
         method: Method.GET,
         endpoint: '',
-        modelName: TasksModel.MODEL_NAME
+        modelName: TasksModel.MODEL_NAME,
+        useAuth: true
     })
     public findAllTasks(req, res, tasks: TasksModel) {
-        tasks.getInstance().findAll({})
+        tasks.getInstance().findAll({ where: { user_id: req.user.id } })
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }
