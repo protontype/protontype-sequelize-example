@@ -1,4 +1,4 @@
-import { BaseModel, BaseCrudRouter, Method, Route } from "protontype";
+import { BaseModel, BaseCrudRouter, Method, Route, UseAuth } from "protontype";
 import { UsersModel } from "../models/UsersModel";
 import { TasksModel } from "../models/TasksModel";
 
@@ -6,6 +6,7 @@ import { TasksModel } from "../models/TasksModel";
  * @author Humberto Machado
  * Example using BaseCrudRouter.
  */
+@UseAuth()
 export class UsersRouter extends BaseCrudRouter {
 
     public getModelInstances(): BaseModel[] {
