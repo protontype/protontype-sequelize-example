@@ -12,7 +12,7 @@
       }
     }
   },
-  "jwtSecret": "Nta$K-AP1",
+  "jwtSecret": "Pr0t0nT1p3",
   "jwtSession": {
     "session": false
   }
