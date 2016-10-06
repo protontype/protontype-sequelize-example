@@ -9,7 +9,7 @@ import { TasksModel } from "../models/TasksModel";
 @UseAuth()
 export class UsersRouter extends BaseCrudRouter {
 
-    public getModelInstances(): BaseModel[] {
+    public getModelInstances(): BaseModel<any>[] {
         return [new UsersModel()];
     }
 

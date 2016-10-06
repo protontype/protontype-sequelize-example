@@ -8,7 +8,7 @@ import { TasksModel } from "../models/TasksModel";
  */
 export class TasksRouter extends ExpressRouter {
 
-    public getModelInstances(): BaseModel[] {
+    public getModelInstances(): BaseModel<any>[] {
         return [new TasksModel()];
     }
 
@@ -23,7 +23,7 @@ export class TasksRouter extends ExpressRouter {
         useAuth: true
     })
     public findAllTasks(req, res, tasks: TasksModel) {
-        tasks.getInstance().findAll({ where: { user_id: req.user.id } })
+        tasks.getInstance().findAll({})
             .then(result => res.json(result))
             .catch(error => this.sendErrorMessage(res, error));
     }

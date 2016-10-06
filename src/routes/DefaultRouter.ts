@@ -9,7 +9,7 @@ import * as jwt from 'jwt-simple';
  */
 export class DefaultRouter extends ExpressRouter {
 
-    public getModelInstances(): BaseModel[] {
+    public getModelInstances(): BaseModel<any>[] {
         return [];
     }
 

@@ -1,4 +1,5 @@
-import { SequelizeDB, BaseModel, DataTypes, Model } from "protontype";
+import * as sequelize from 'sequelize';
+import { SequelizeDB, BaseModel, DataTypes, Model, SequelizeBaseModelAttr } from "protontype";
 import { TasksModel } from "./TasksModel";
 import * as bcrypt from 'bcrypt';
 
@@ -38,7 +39,7 @@ import * as bcrypt from 'bcrypt';
         }
     }
 })
-export class UsersModel extends BaseModel {
+export class UsersModel extends BaseModel<User> {
     public static MODEL_NAME = 'Users';
 
     public associate(sequelizeDB: SequelizeDB): void {
@@ -55,4 +56,10 @@ export class UsersModel extends BaseModel {
     public isPassword(encodedPassword: string, password: string): boolean {
         return bcrypt.compareSync(password, encodedPassword);
     }
+}
+
+export interface User extends SequelizeBaseModelAttr {
+    name: string;
+    password: string;
+    email: string;
 }

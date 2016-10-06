@@ -1,4 +1,4 @@
-import { SequelizeDB, BaseModel, DataTypes, Model } from "protontype";
+import { SequelizeDB, BaseModel, DataTypes, Model, SequelizeBaseModelAttr } from "protontype";
 import { UsersModel } from "./UsersModel";
 
 /**
@@ -27,10 +27,15 @@ import { UsersModel } from "./UsersModel";
         }
     }
 })
-export class TasksModel extends BaseModel {
+export class TasksModel extends BaseModel<Task> {
     public static MODEL_NAME = 'Tasks';
 
     public associate(sequelizeDB: SequelizeDB): void {
         this.getInstance().belongsTo(sequelizeDB.getModel(UsersModel.MODEL_NAME).getInstance());
     }
+}
+
+export interface Task extends SequelizeBaseModelAttr{
+    title: string;
+    done: boolean;
 }
