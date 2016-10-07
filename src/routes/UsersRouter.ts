@@ -1,6 +1,6 @@
-import { BaseModel, BaseCrudRouter, Method, Route, UseAuth } from "protontype";
-import { UsersModel } from "../models/UsersModel";
-import { TasksModel } from "../models/TasksModel";
+import { TasksModel } from '../models/TasksModel';
+import { UsersModel } from '../models/UsersModel';
+import { BaseCrudRouter, BaseModel, Method, Route, UseAuth } from 'protontype';
 
 /**
  * @author Humberto Machado

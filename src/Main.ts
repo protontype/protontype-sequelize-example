@@ -1,8 +1,8 @@
-import { ExpressApplication } from "protontype";
-import { TasksRouter } from "./routes/TasksRouter";
-import { UsersRouter } from "./routes/UsersRouter";
-import { DefaultRouter } from "./routes/DefaultRouter";
-import { JWTAuthMiddleware } from "./middlewares/JWTAuthMiddleware";
+import { JWTAuthMiddleware } from './middlewares/JWTAuthMiddleware';
+import { DefaultRouter } from './routes/DefaultRouter';
+import { TasksRouter } from './routes/TasksRouter';
+import { UsersRouter } from './routes/UsersRouter';
+import { ExpressApplication } from 'protontype';
 /**
  * @author Humberto Machado
  *

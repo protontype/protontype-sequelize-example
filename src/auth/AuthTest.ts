@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as passport from 'passport';
-import { Strategy, ExtractJwt } from 'passport-jwt';
+import { ExtractJwt, Strategy } from 'passport-jwt';
 
 const app = express();
 
