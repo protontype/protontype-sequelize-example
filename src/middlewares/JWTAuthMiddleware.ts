@@ -1,10 +1,9 @@
 import { SpecificConfig } from './../conf/Config';
 import { UsersModel } from './../models/UsersModel';
-import { Middleware } from 'protontype';
-import { Config, GlobalConfig, ExpressApplication, AuthMiddleware } from "protontype";
-import { Strategy, StrategyOptions, ExtractJwt, VerifiedCallback } from "passport-jwt";
-import * as passport from "passport";
-import * as express from "express";
+import * as express from 'express';
+import * as passport from 'passport';
+import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
+import { AuthMiddleware, Config } from 'protontype';
 
 export class JWTAuthMiddleware extends AuthMiddleware {
     private passportInstance: passport.Passport;
