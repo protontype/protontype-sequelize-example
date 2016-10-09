@@ -1,6 +1,6 @@
 import { TasksModel } from './TasksModel';
 import { BaseModel, DataTypes, Model, SequelizeBaseModelAttr, SequelizeDB } from 'protontype';
-// import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 /**
  * @author Humberto Machado
@@ -47,14 +47,13 @@ export class UsersModel extends BaseModel<User> {
 
     public configure(sequelizeDB: SequelizeDB): void {
         this.getInstance().beforeCreate((user: any) => {
-            // let salt: string = bcrypt.genSaltSync();
-            // user.password = bcrypt.hashSync(user.password, salt);
+            let salt: string = bcrypt.genSaltSync();
+            user.password = bcrypt.hashSync(user.password, salt);
         });
     }
 
     public isPassword(encodedPassword: string, password: string): boolean {
-        // return bcrypt.compareSync(password, encodedPassword);
-        return true;
+        return bcrypt.compareSync(password, encodedPassword);
     }
 }
 

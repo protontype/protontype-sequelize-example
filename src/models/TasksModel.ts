@@ -35,7 +35,7 @@ export class TasksModel extends BaseModel<Task> {
     }
 }
 
-export interface Task extends SequelizeBaseModelAttr{
+export interface Task extends SequelizeBaseModelAttr {
     title: string;
     done: boolean;
 }
