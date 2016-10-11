@@ -38,4 +38,5 @@ export class TasksModel extends BaseModel<Task> {
 export interface Task extends SequelizeBaseModelAttr {
     title: string;
     done: boolean;
+    user_id: number;
 }

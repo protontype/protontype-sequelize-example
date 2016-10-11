@@ -19,7 +19,9 @@
             },
             "console": "internalConsole",
             "sourceMaps": true,
-            "outDir": "${workspaceRoot}/dist"
+            "outFiles": [
+                "${workspaceRoot}/{dist}/**/*.js"
+            ]
         },
         {
             "name": "Attach",
@@ -29,7 +31,7 @@
             "address": "localhost",
             "restart": false,
             "sourceMaps": false,
-            "outDir": null,
+            "outFiles": [],
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
         },
@@ -40,7 +42,7 @@
             "processId": "${command.PickProcess}",
             "port": 5858,
             "sourceMaps": false,
-            "outDir": null
+            "outFiles": []
         }
     ]
 }
