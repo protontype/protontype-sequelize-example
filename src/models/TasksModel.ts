@@ -30,8 +30,8 @@ import { UsersModel } from "./UsersModel";
 export class TasksModel extends BaseModel<Task> {
     public static MODEL_NAME = 'Tasks';
 
-    public configure(sequelizeDB: SequelizeDB): void {
-        this.belongsTo(sequelizeDB, UsersModel.MODEL_NAME);
+    public configure(): void {
+        this.belongsTo(UsersModel.MODEL_NAME);
     }
 }
 

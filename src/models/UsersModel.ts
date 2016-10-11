@@ -41,8 +41,8 @@ import * as bcrypt from 'bcrypt';
 export class UsersModel extends BaseModel<User> {
     public static MODEL_NAME = 'Users';
 
-    public configure(sequelizeDB: SequelizeDB): void {
-        this.hasMany(sequelizeDB, TasksModel.MODEL_NAME);
+    public configure(): void {
+        this.hasMany(TasksModel.MODEL_NAME);
         this.getInstance().beforeCreate((user: any) => {
             let salt: string = bcrypt.genSaltSync();
             user.password = bcrypt.hashSync(user.password, salt);
