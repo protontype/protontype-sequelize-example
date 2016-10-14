@@ -2,15 +2,19 @@
   "port": "3000",
   "database": {
     "name": "proton-example",
-    "username": " ",
+    "username": "",
     "password": "",
     "options": {
       "dialect": "sqlite",
-      "storage": "proton.sqlite",
       "define": {
         "underscored": "true"
       }
     }
+  },
+  "cors": {
+    "origin": ["*"],
+    "methods": ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
+    "allowedHeaders": ["Content-Type", "Authorization"]
   },
   "jwtSecret": "Pr0t0nT1p3",
   "jwtSession": {
