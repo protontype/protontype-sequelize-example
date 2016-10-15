@@ -1,5 +1,5 @@
 import { SpecificConfig } from './../conf/Config';
-import { UsersModel } from './../models/UsersModel';
+import { UsersModel, User } from './../models/UsersModel';
 import * as jwt from 'jwt-simple';
 import { BaseModel, Config, ExpressRouter, Method, Route } from 'protontype';
 
@@ -36,25 +36,24 @@ export class DefaultRouter extends ExpressRouter {
         method: Method.POST,
         endpoint: 'token'
     })
-    public tokenRoute(req: any, res: any): void {
+    public async tokenRoute(req: any, res: any) {
         let cfg: SpecificConfig = Config;
         let userModel: UsersModel = this.getModel<UsersModel>(UsersModel.MODEL_NAME);
 
         if (req.body.email && req.body.password) {
             const email = req.body.email;
             const password = req.body.password;
-            userModel.getInstance().findOne({ where: { email: email } })
-                .then(user => {
-                    if (userModel.isPassword(user.password, password)) {
-                        const payload = { id: user.id };
-                        res.json({
-                            token: jwt.encode(payload, cfg.jwtSecret)
-                        });
-                    } else {
-                        res.sendStatus(401);
-                    }
-                })
-                .catch(error => res.sendStatus(401));
+            try {
+                let user: User = await userModel.getInstance().findOne({ where: { email: email } });
+                if (userModel.isPassword(user.password, password)) {
+                    const payload = { id: user.id };
+                    res.json({ token: jwt.encode(payload, cfg.jwtSecret) });
+                } else {
+                    res.sendStatus(401);
+                }
+            } catch (error) {
+                res.sendStatus(401)
+            }
         } else {
             res.sendStatus(401);
         }

@@ -1,5 +1,5 @@
 import { SpecificConfig } from './../conf/Config';
-import { UsersModel } from './../models/UsersModel';
+import { UsersModel, User } from './../models/UsersModel';
 import * as express from 'express';
 import * as passport from 'passport';
 import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
@@ -18,18 +18,19 @@ export class JWTAuthMiddleware extends AuthMiddleware {
             jwtFromRequest: ExtractJwt.fromAuthHeader()
         };
 
-        const strategy: Strategy = new Strategy(params, (payload: any, done: VerifiedCallback) => {
-            userModel.getInstance().findById(payload.id)
-                .then(user => {
-                    if (user) {
-                        return done(null, {
-                            id: user.id,
-                            email: user.email
-                        });
-                    }
-                    return done(null, false);
-                })
-                .catch(error => done(error, null));
+        const strategy: Strategy = new Strategy(params, async (payload: any, done: VerifiedCallback) => {
+            try {
+                let user: User = await userModel.getInstance().findById(payload.id);
+                if (user) {
+                    return done(null, {
+                        id: user.id,
+                        email: user.email
+                    });
+                }
+                return done(null, false);
+            } catch (error) {
+                return done(error, null);
+            }
         });
         this.passportInstance.use(strategy);
         this.expressApplication.getExpress().use(this.passportInstance.initialize());

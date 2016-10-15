@@ -6,6 +6,7 @@
     "password": "",
     "options": {
       "dialect": "sqlite",
+      "storage": "proton.sqlite",
       "define": {
         "underscored": "true"
       }
