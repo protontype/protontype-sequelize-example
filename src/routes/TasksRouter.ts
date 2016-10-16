@@ -1,93 +1,15 @@
-import { JWTAuthMiddleware } from './../middlewares/JWTAuthMiddleware';
-import { BaseModel, ExpressRouter, Method, Route, ExpressApplication } from "protontype";
-import { TasksModel, Task } from "../models/TasksModel";
+import { TasksModel } from '../models/TasksModel';
+import { BaseCrudRouter, BaseModel, UseAuth, RouterClass } from 'protontype';
 
 /**
  * @author Humberto Machado
- * Router example using decorator @Route and model
+ * Router example
  */
-export class TasksRouter extends ExpressRouter {
+@UseAuth()
+@RouterClass({
+    baseUrl: "/tasks",
+    modelInstances: [new TasksModel()]
+})
+export class TasksRouter extends BaseCrudRouter {
 
-    public getModelInstances(): BaseModel<any>[] {
-        return [new TasksModel()];
-    }
-
-    public getBaseUrl(): string {
-        return '/tasks';
-    }
-
-    @Route({
-        method: Method.GET,
-        endpoint: '',
-        modelName: TasksModel.MODEL_NAME,
-        useAuth: true
-    })
-    public async findAllTasks(req, res, tasks: TasksModel) {
-        try {
-            let task: Task[] = await tasks.getInstance().findAll({});
-            res.json(task);
-        } catch (error) {
-            this.sendErrorMessage(res, error)
-        }
-    }
-
-    @Route({
-        method: Method.POST,
-        endpoint: '',
-        modelName: TasksModel.MODEL_NAME
-    })
-    public async createTask(req, res, tasks: TasksModel) {
-        try {
-            let task: Task = await tasks.getInstance().create(req.body);
-            res.json(task);
-        } catch (error) {
-            this.sendErrorMessage(res, error);
-        }
-    }
-
-    @Route({
-        method: Method.GET,
-        endpoint: '/:id',
-        modelName: TasksModel.MODEL_NAME
-    })
-    public async findOneTask(req, res, tasks: TasksModel) {
-        try {
-            let task: Task = await tasks.getInstance().findOne({ where: req.params });
-            if (task) {
-                res.json(task);
-            } else {
-                res.sendStatus(404);
-            }
-        } catch (error) {
-            this.sendErrorMessage(res, error);
-        }
-    }
-
-    @Route({
-        method: Method.PUT,
-        endpoint: '/:id',
-        modelName: TasksModel.MODEL_NAME
-    })
-    public async updateTask(req, res, tasks: TasksModel) {
-        try {
-            await tasks.getInstance().update(req.body, { where: req.params });
-            res.sendStatus(204);
-        } catch (error) {
-            this.sendErrorMessage(res, error);
-        }
-    }
-
-    @Route({
-        method: Method.DELETE,
-        endpoint: '/:id',
-        modelName: TasksModel.MODEL_NAME
-    })
-    public async deleteTask(req, res, tasks: TasksModel) {
-        try {
-            await tasks.getInstance().destroy({ where: req.params });
-            res.sendStatus(204);
-        } catch (error) {
-            this.sendErrorMessage(res, error);
-        }
-    }
 }

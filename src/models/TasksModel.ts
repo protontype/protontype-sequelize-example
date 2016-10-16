@@ -8,11 +8,6 @@ import { UsersModel } from "./UsersModel";
 @Model({
     name: TasksModel.MODEL_NAME,
     definition: {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
         title: {
             type: DataTypes.STRING,
             allowNull: false,

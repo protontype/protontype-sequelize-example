@@ -1,5 +1,5 @@
 import { SpecificConfig } from './../conf/Config';
-import { UsersModel, User } from './../models/UsersModel';
+import { User, UsersModel } from './../models/UsersModel';
 import * as jwt from 'jwt-simple';
 import { BaseModel, Config, ExpressRouter, Method, Route } from 'protontype';
 
