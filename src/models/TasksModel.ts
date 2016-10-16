@@ -1,12 +1,12 @@
-import { SequelizeDB, BaseModel, DataTypes, Model, SequelizeBaseModelAttr } from "protontype";
-import { UsersModel } from "./UsersModel";
+import { ModelNames } from './ModelNames';
+import { BaseModel, BelongsTo, DataTypes, Model, SequelizeBaseModelAttr } from 'protontype';
 
 /**
  * @author Humberto Machado
  *
  */
 @Model({
-    name: TasksModel.MODEL_NAME,
+    name: ModelNames.TASKS,
     definition: {
         title: {
             type: DataTypes.STRING,
@@ -22,12 +22,8 @@ import { UsersModel } from "./UsersModel";
         }
     }
 })
+@BelongsTo(ModelNames.USERS)
 export class TasksModel extends BaseModel<Task> {
-    public static MODEL_NAME = 'Tasks';
-
-    public configure(): void {
-        this.belongsTo(UsersModel.MODEL_NAME);
-    }
 }
 
 export interface Task extends SequelizeBaseModelAttr {

@@ -1,13 +1,13 @@
-import { TasksModel } from './TasksModel';
-import { BaseModel, DataTypes, Model, SequelizeBaseModelAttr, SequelizeDB } from 'protontype';
+import { ModelNames } from './ModelNames';
 import * as bcrypt from 'bcrypt';
+import { BaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'protontype';
 
 /**
  * @author Humberto Machado
  *
  */
 @Model({
-    name: UsersModel.MODEL_NAME,
+    name: ModelNames.USERS,
     definition: {
         name: {
             type: DataTypes.STRING,
@@ -33,11 +33,10 @@ import * as bcrypt from 'bcrypt';
         }
     }
 })
+@HasMany(ModelNames.TASKS)
 export class UsersModel extends BaseModel<User> {
-    public static MODEL_NAME = 'Users';
-
     public configure(): void {
-        this.hasMany(TasksModel.MODEL_NAME);
+        // this.hasMany(TasksModel.MODEL_NAME);
         this.getInstance().beforeCreate((user: any) => {
             let salt: string = bcrypt.genSaltSync();
             user.password = bcrypt.hashSync(user.password, salt);

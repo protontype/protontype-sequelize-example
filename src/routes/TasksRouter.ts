@@ -1,5 +1,5 @@
 import { TasksModel } from '../models/TasksModel';
-import { BaseCrudRouter, BaseModel, UseAuth, RouterClass } from 'protontype';
+import { BaseCrudRouter, RouterClass, UseAuth } from 'protontype';
 
 /**
  * @author Humberto Machado

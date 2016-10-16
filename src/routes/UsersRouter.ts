@@ -1,7 +1,8 @@
 import { Task, TasksModel } from '../models/TasksModel';
 import { UsersModel } from '../models/UsersModel';
+import { ModelNames } from './../models/ModelNames';
 import { create } from 'domain';
-import { BaseCrudRouter, BaseModel, Method, Route, UseAuth, RouterClass } from 'protontype';
+import { BaseCrudRouter, Method, Route, RouterClass, UseAuth } from 'protontype';
 
 /**
  * @author Humberto Machado
@@ -28,7 +29,7 @@ export class UsersRouter extends BaseCrudRouter {
         useAuth: true
     })
     public async tasksFromUser(req, res) {
-        let tasks: TasksModel = this.getModel<TasksModel>(TasksModel.MODEL_NAME);
+        let tasks: TasksModel = this.getModel<TasksModel>(ModelNames.TASKS);
         try {
             let task: Task[] = await tasks.getInstance().findAll({ where: req.params });
             res.json(task);
@@ -43,7 +44,7 @@ export class UsersRouter extends BaseCrudRouter {
     @Route({
         endpoint: '/:user_id/tasks2',
         method: Method.GET,
-        modelName: TasksModel.MODEL_NAME,
+        modelName: ModelNames.TASKS,
         useAuth: true
     })
     public async tasksFromUser2(req, res, model: TasksModel) {
