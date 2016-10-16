@@ -1,5 +1,6 @@
 import { SpecificConfig } from './../conf/Config';
-import { UsersModel, User } from './../models/UsersModel';
+import { ModelNames } from './../models/ModelNames';
+import { User, UsersModel } from './../models/UsersModel';
 import * as express from 'express';
 import * as passport from 'passport';
 import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
@@ -11,7 +12,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
 
     public configMiddlewares(): void {
         this.passportInstance = passport;
-        let userModel: UsersModel = this.expressApplication.getModel<UsersModel>(UsersModel.MODEL_NAME);
+        let userModel: UsersModel = this.expressApplication.getModel<UsersModel>(ModelNames.USERS);
 
         let params: StrategyOptions = {
             secretOrKey: this.config.jwtSecret,
