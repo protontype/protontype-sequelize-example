@@ -1,7 +1,6 @@
 import { Task, TasksModel } from '../models/TasksModel';
 import { UsersModel } from '../models/UsersModel';
 import { ModelNames } from './../models/ModelNames';
-import { create } from 'domain';
 import { BaseCrudRouter, Method, Route, RouterClass, UseAuth } from 'protontype';
 
 /**

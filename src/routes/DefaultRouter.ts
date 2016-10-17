@@ -2,22 +2,17 @@ import { SpecificConfig } from './../conf/Config';
 import { ModelNames } from './../models/ModelNames';
 import { User, UsersModel } from './../models/UsersModel';
 import * as jwt from 'jwt-simple';
-import { BaseModel, Config, ExpressRouter, Method, Route } from 'protontype';
+import { BaseModel, Config, ExpressRouter, Method, Route, RouterClass } from 'protontype';
 
 /**
  * @author Humberto Machado
  * Example custom routes using router instance directly mixing with @Route decorator
  */
+@RouterClass({
+    baseUrl: "/"
+})
 export class DefaultRouter extends ExpressRouter {
-
-    public getModelInstances(): BaseModel<any>[] {
-        return [];
-    }
-
-    public getBaseUrl(): string {
-        return "/";
-    }
-
+    
     @Route({
         method: Method.GET,
         endpoint: 'routes'
