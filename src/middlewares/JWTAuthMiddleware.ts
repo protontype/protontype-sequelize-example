@@ -4,11 +4,11 @@ import { User, UsersModel } from './../models/UsersModel';
 import * as express from 'express';
 import * as passport from 'passport';
 import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
-import { AuthMiddleware, Config } from 'protontype';
+import { AuthMiddleware, ProtonConfigLoader } from 'protontype';
 
 export class JWTAuthMiddleware extends AuthMiddleware {
     private passportInstance: passport.Passport;
-    private config: SpecificConfig = Config;
+    private config: SpecificConfig = ProtonConfigLoader.loadConfig();
 
     public configMiddlewares(): void {
         this.passportInstance = passport;
