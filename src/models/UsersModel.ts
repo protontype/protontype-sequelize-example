@@ -36,7 +36,6 @@ import { BaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'pr
 @HasMany(ModelNames.TASKS)
 export class UsersModel extends BaseModel<User> {
     public configure(): void {
-        // this.hasMany(TasksModel.MODEL_NAME);
         this.getInstance().beforeCreate((user: any) => {
             let salt: string = bcrypt.genSaltSync();
             user.password = bcrypt.hashSync(user.password, salt);

@@ -17,6 +17,7 @@
     "passport-strategy": "registry:dt/passport-strategy#0.2.0+20160316155526",
     "sequelize": "registry:dt/sequelize#3.4.1+20160815132916",
     "serve-static": "registry:dt/serve-static#0.0.0+20160606155157",
-    "validator": "registry:dt/validator#5.7.0+20160925114326"
+    "validator": "registry:dt/validator#5.7.0+20160925114326",
+    "winston": "registry:dt/winston#0.0.0+20161006194546"
   }
 }
