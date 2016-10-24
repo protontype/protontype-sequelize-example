@@ -20,5 +20,9 @@
   "jwtSecret": "Pr0t0nT1p3",
   "jwtSession": {
     "session": false
+  },
+  "https": {
+    "key": "./protontype.key",
+    "cert": "./protontype.cert"
   }
 }

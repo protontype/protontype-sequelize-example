@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr v-for="route in routes">
-                    <td class="selectable"> <a href="http://localhost:3000{{ route.path }}"> {{ route.method }} : {{ route.path }} </a></td>
+                    <td class="selectable"> <a href="https://localhost:3000{{ route.path }}"> {{ route.method }} : {{ route.path }} </a></td>
                 </tr>
             </tbody>
         </table>
@@ -30,7 +30,7 @@ new Vue({
         routes: []
     },
     ready() {
-        this.$http.get('http://localhost:3000/routes').then((response) => {
+        this.$http.get('https://localhost:3000/routes').then((response) => {
             this.$set('routes', response.json());
         }, (response) => {
             console.log("ERROR! ");
