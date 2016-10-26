@@ -12,15 +12,6 @@ import { BaseModel, ProtonConfigLoader, ExpressRouter, Method, Route, RouterClas
     baseUrl: "/"
 })
 export class DefaultRouter extends ExpressRouter {
-    
-    @Route({
-        method: Method.GET,
-        endpoint: 'routes'
-    })
-    public listRoutes(req, res, model): void {
-        res.json(this.expressApplication.getRoutesList());
-    }
-
     @Route()
     public rootRoute(): void {
         this.router.get("", (req, res) =>

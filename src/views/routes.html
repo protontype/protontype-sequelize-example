@@ -30,7 +30,7 @@ new Vue({
         routes: []
     },
     ready() {
-        this.$http.get('https://localhost:3000/routes').then((response) => {
+        this.$http.get('https://localhost:3000/proton/routes').then((response) => {
             this.$set('routes', response.json());
         }, (response) => {
             console.log("ERROR! ");

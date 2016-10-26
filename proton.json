@@ -12,6 +12,7 @@
       }
     }
   },
+  "defaultRoutes": true,
   "cors": {
     "origin": ["*"],
     "methods": ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
