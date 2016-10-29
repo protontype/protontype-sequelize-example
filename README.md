@@ -1,14 +1,28 @@
-Protontype API Example
+[Protontype API](https://github.com/linck/protontype) Example
 ----------------------
 
-Exemplo de uso do [Protontype API](https://github.com/linck/protontype-api)
+Development enviroment (linked module)
+----------------------
+**Cloning ProtonType module**
 
-Configuração Ambiente
+ 1. Clone [protontype](https://github.com/linck/protontype.git) repository
+ 2. npm install
+ 3. npm link
+
+**Cloning and install example**
+
+ 1. Clone this repository
+ 2. npm install
+ 3.  npm link protontype
+ 4. tsc
+ 5. npm start
+
+
+Enviroment (not linked module)
 ---------------------
-- npm install
-- npm start
-- Acessar localhost:3000
+ 1. Clone this repository
+ 2. npm install
 
-Requerimentos
+Requirements
 -------------
-Node 6.x ou maior
+NodeJS 6.x or later
