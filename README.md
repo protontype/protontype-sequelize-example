@@ -1,7 +1,7 @@
 [Protontype API](https://github.com/linck/protontype) Example
 ----------------------
 
-Development enviroment (linked module)
+Development environment (linked module)
 ----------------------
 **Cloning ProtonType module**
 
