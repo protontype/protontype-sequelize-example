@@ -5,7 +5,7 @@ Development enviroment (linked module)
 ----------------------
 **Cloning ProtonType module**
 
- 1. Clone [protontype](https://github.com/linck/protontype.git) repository
+ 1. Clone [protontype](https://github.com/linck/protontype.git) repository (https://github.com/linck/protontype.git)
  2. npm install
  3. npm link
 
