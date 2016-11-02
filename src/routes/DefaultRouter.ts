@@ -2,7 +2,7 @@ import { SpecificConfig } from './../conf/Config';
 import { ModelNames } from './../models/ModelNames';
 import { User, UsersModel } from './../models/UsersModel';
 import * as jwt from 'jwt-simple';
-import { BaseModel, ProtonConfigLoader, ExpressRouter, Method, Route, RouterClass } from 'protontype';
+import { ExpressRouter, Method, ModelInstance, ProtonConfigLoader, Route, RouterClass } from 'protontype';
 
 /**
  * @author Humberto Machado
@@ -31,7 +31,8 @@ export class DefaultRouter extends ExpressRouter {
             const email = req.body.email;
             const password = req.body.password;
             try {
-                let user: User = await userModel.getInstance().findOne({ where: { email: email } });
+                let userInstance: ModelInstance<User> = await userModel.getInstance().findOne({ where: { email: email } });
+                let user: User = userInstance.toJSON();
                 if (userModel.isPassword(user.password, password)) {
                     const payload = { id: user.id };
                     res.json({ token: jwt.encode(payload, cfg.jwtSecret) });

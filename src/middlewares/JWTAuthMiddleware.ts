@@ -4,7 +4,7 @@ import { User, UsersModel } from './../models/UsersModel';
 import * as express from 'express';
 import * as passport from 'passport';
 import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
-import { AuthMiddleware, ProtonConfigLoader } from 'protontype';
+import { AuthMiddleware, ModelInstance, ProtonConfigLoader } from 'protontype';
 
 export class JWTAuthMiddleware extends AuthMiddleware {
     private passportInstance: passport.Passport;
@@ -21,7 +21,8 @@ export class JWTAuthMiddleware extends AuthMiddleware {
 
         const strategy: Strategy = new Strategy(params, async (payload: any, done: VerifiedCallback) => {
             try {
-                let user: User = await userModel.getInstance().findById(payload.id);
+                let userInstance: ModelInstance<User> = await userModel.getInstance().findById(payload.id);
+                let user: User = userInstance.toJSON();
                 if (user) {
                     return done(null, {
                         id: user.id,
