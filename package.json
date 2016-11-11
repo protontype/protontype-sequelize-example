@@ -1,6 +1,6 @@
 {
   "name": "protontype-example",
-  "version": "0.10.1-alpha",
+  "version": "1.0.0-beta",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "jwt-simple": "^0.4.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
-    "protontype": "^0.10.1-alpha"
+    "protontype": "^1.0.0-beta"
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
