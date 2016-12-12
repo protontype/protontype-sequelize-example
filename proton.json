@@ -23,6 +23,7 @@
     "session": false
   },
   "https": {
+    "enabled": true,
     "key": "./protontype.key",
     "cert": "./protontype.cert"
   }

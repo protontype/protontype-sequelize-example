@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -11,7 +11,9 @@
     "baseUrl": "./",
     "paths": {
         "*": [ "node_modules/@types/*", "*"]
-    }
+    },"lib": [
+      "es6", "dom"
+    ]
   },
   "exclude": [
     "node_modules",
