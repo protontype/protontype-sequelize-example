@@ -12,7 +12,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
 
     public configMiddlewares(): void {
         this.passportInstance = passport;
-        let userModel: UsersModel = this.expressApplication.getModel<UsersModel>(ModelNames.USERS);
+        let userModel: UsersModel = this.protonApplication.getModel<UsersModel>(ModelNames.USERS);
 
         let params: StrategyOptions = {
             secretOrKey: this.config.jwtSecret,
@@ -35,7 +35,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
             }
         });
         this.passportInstance.use(strategy);
-        this.expressApplication.getExpress().use(this.passportInstance.initialize());
+        this.protonApplication.getExpress().use(this.passportInstance.initialize());
     }
 
     public authenticate(): express.Handler {
