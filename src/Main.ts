@@ -7,9 +7,7 @@ import { ProtonApplication } from 'protontype';
  * @author Humberto Machado
  *
  */
-let expressApp = new ProtonApplication();
-expressApp
-    .withAuthMiddleware(new JWTAuthMiddleware())
+new ProtonApplication().withAuthMiddleware(new JWTAuthMiddleware())
     .addRouter(new DefaultRouter())
     .addRouter(new TasksRouter())
     .addRouter(new UsersRouter())
