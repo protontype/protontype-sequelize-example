@@ -17,13 +17,14 @@
     "@types/jwt-simple": "^0.5.32",
     "@types/passport": "^0.2.33",
     "@types/passport-jwt": "^2.0.19",
-    "bcrypt": "^0.8.5",
+    "bcrypt-nodejs": "0.0.3",
     "jwt-simple": "^0.4.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
     "protontype": "^1.0.0-rc1"
   },
   "devDependencies": {
+    "@types/bcrypt-nodejs": "0.0.30",
     "concurrently": "^2.2.0",
     "nodemon": "^1.9.2",
     "typescript": "^2.1.4",

@@ -1,5 +1,5 @@
 import { ModelNames } from './ModelNames';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt-nodejs';
 import { BaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'protontype';
 
 /**
