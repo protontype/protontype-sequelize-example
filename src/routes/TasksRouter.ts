@@ -1,5 +1,6 @@
+import { RouterFunctionParams } from 'protontype/dist/lib';
 import { TasksModel } from '../models/TasksModel';
-import { BaseCrudRouter, RouterClass, UseAuth } from 'protontype';
+import { BaseCrudRouter, RouterClass, UseAuth, Route, Method } from 'protontype';
 
 /**
  * @author Humberto Machado

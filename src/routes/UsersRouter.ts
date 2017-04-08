@@ -1,3 +1,4 @@
+import { RouterFunctionParams } from 'protontype/dist/lib';
 import { Task, TasksModel } from '../models/TasksModel';
 import { UsersModel } from '../models/UsersModel';
 import { ModelNames } from './../models/ModelNames';
@@ -27,13 +28,13 @@ export class UsersRouter extends BaseCrudRouter {
         method: Method.GET,
         useAuth: true
     })
-    public async tasksFromUser(req, res) {
-        let tasks: TasksModel = this.getModel<TasksModel>(ModelNames.TASKS);
+    public async tasksFromUser(params: RouterFunctionParams) {
+        let tasks: TasksModel = params.app.getModel<TasksModel>(ModelNames.TASKS);
         try {
-            let task: ModelInstance<Task>[] = await tasks.getInstance().findAll({ where: req.params });
-            res.json(task);
+            let task: ModelInstance<Task>[] = await tasks.getInstance().findAll({ where: params.req.params });
+            params.res.json(task);
         } catch (error) {
-            this.sendErrorMessage(res, error);
+            this.sendErrorMessage(params.res, error);
         }
     }
 
@@ -46,12 +47,12 @@ export class UsersRouter extends BaseCrudRouter {
         modelName: ModelNames.TASKS,
         useAuth: true
     })
-    public async tasksFromUser2(req, res, model: TasksModel) {
+    public async tasksFromUser2(params: RouterFunctionParams) {
         try {
-            let task: ModelInstance<Task>[] = await model.getInstance().findAll({ where: req.params });
-            res.json(task);
+            let task: ModelInstance<Task>[] = await params.model.getInstance().findAll({ where: params.req.params });
+            params.res.json(task);
         } catch (error) {
-            this.sendErrorMessage(res, error);
+            this.sendErrorMessage(params.res, error);
         }
     }
 }
