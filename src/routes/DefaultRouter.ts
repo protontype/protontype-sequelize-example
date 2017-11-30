@@ -2,7 +2,8 @@ import { SpecificConfig } from './../conf/Config';
 import { ModelNames } from './../models/ModelNames';
 import { User, UsersModel } from './../models/UsersModel';
 import * as jwt from 'jwt-simple';
-import { ExpressRouter, Method, ModelInstance, ProtonConfigLoader, Route, RouterClass } from 'protontype';
+import { ExpressRouter, Method, ProtonConfigLoader, Route, RouterClass } from 'protontype';
+import { SequelizeDB, ModelInstance } from 'protontype-sequelize';
 
 /**
  * @author Humberto Machado
@@ -25,7 +26,7 @@ export class DefaultRouter extends ExpressRouter {
     })
     public async tokenRoute(req: any, res: any) {
         let cfg: SpecificConfig = ProtonConfigLoader.loadConfig();
-        let userModel: UsersModel = this.getModel<UsersModel>(ModelNames.USERS);
+        let userModel: UsersModel = SequelizeDB.getBD().getModel(UsersModel);
 
         if (req.body.email && req.body.password) {
             const email = req.body.email;

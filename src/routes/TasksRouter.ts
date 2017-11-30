@@ -1,16 +1,16 @@
 import { RouterFunctionParams } from 'protontype/dist/lib';
 import { TasksModel } from '../models/TasksModel';
-import { BaseCrudRouter, RouterClass, UseAuth, Route, Method } from 'protontype';
+import { RouterClass, UseAuth, Route, Method } from 'protontype';
+import { SequelizeCrudRouter } from 'protontype-sequelize';
 
 /**
  * @author Humberto Machado
  * Router example
  */
-@UseAuth()
 @RouterClass({
     baseUrl: "/tasks",
-    modelInstances: [new TasksModel()]
+    model: TasksModel
 })
-export class TasksRouter extends BaseCrudRouter {
+export class TasksRouter extends SequelizeCrudRouter {
 
 }

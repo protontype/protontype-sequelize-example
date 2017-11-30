@@ -1,5 +1,5 @@
 import { ModelNames } from './ModelNames';
-import { BaseModel, BelongsTo, DataTypes, Model, SequelizeBaseModelAttr } from 'protontype';
+import { SequelizeBaseModel, BelongsTo, DataTypes, Model, SequelizeBaseModelAttr } from 'protontype-sequelize';
 
 /**
  * @author Humberto Machado
@@ -23,7 +23,7 @@ import { BaseModel, BelongsTo, DataTypes, Model, SequelizeBaseModelAttr } from '
     }
 })
 @BelongsTo(ModelNames.USERS)
-export class TasksModel extends BaseModel<Task> {
+export class TasksModel extends SequelizeBaseModel<Task> {
 }
 
 export interface Task extends SequelizeBaseModelAttr {

@@ -1,10 +1,11 @@
-import { SpecificConfig } from './../conf/Config';
+/*import { SpecificConfig } from './../conf/Config';
 import { ModelNames } from './../models/ModelNames';
 import { User, UsersModel } from './../models/UsersModel';
-import * as express from 'express';
 import * as passport from 'passport';
 import { ExtractJwt, Strategy, StrategyOptions, VerifiedCallback } from 'passport-jwt';
-import { AuthMiddleware, ModelInstance, ProtonConfigLoader } from 'protontype';
+import { AuthMiddleware, ProtonConfigLoader, ProtonApplication } from 'protontype';
+import { ModelInstance, SequelizeDB } from 'protontype-sequelize';
+import { Handler } from 'express';
 
 export class JWTAuthMiddleware extends AuthMiddleware {
     private passportInstance: passport.Passport;
@@ -12,7 +13,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
 
     public configMiddlewares(): void {
         this.passportInstance = passport;
-        let userModel: UsersModel = this.protonApplication.getModel<UsersModel>(ModelNames.USERS);
+        let userModel: UsersModel = SequelizeDB.getBD().getModel<UsersModel>(UsersModel);
 
         let params: StrategyOptions = {
             secretOrKey: this.config.jwtSecret,
@@ -38,7 +39,7 @@ export class JWTAuthMiddleware extends AuthMiddleware {
         this.protonApplication.getExpress().use(this.passportInstance.initialize());
     }
 
-    public authenticate(): express.Handler {
+    public authenticate(): Handler {
         return this.passportInstance.authenticate("jwt", this.config.jwtSession);
     }
 
@@ -50,4 +51,4 @@ export class JWTAuthMiddleware extends AuthMiddleware {
         return this.config;
     }
 
-}
+}*/

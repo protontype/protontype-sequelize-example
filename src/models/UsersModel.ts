@@ -1,6 +1,6 @@
 import { ModelNames } from './ModelNames';
 import * as bcrypt from 'bcrypt-nodejs';
-import { BaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'protontype';
+import { SequelizeBaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'protontype-sequelize';
 
 /**
  * @author Humberto Machado
@@ -34,7 +34,7 @@ import { BaseModel, DataTypes, HasMany, Model, SequelizeBaseModelAttr } from 'pr
     }
 })
 @HasMany(ModelNames.TASKS)
-export class UsersModel extends BaseModel<User> {
+export class UsersModel extends SequelizeBaseModel<User> {
     public configure(): void {
         this.getInstance().beforeCreate((user: any) => {
             let salt: string = bcrypt.genSaltSync();
