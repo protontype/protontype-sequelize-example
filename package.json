@@ -17,13 +17,15 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
     "protontype": "^2.0.0-rc.3",
-    "protontype-sequelize": "^1.0.0"
+    "protontype-sequelize": "^1.0.0",
+    "sqlite3": "^3.1.13"
   },
   "devDependencies": {
     "@types/bcrypt-nodejs": "0.0.30",
     "@types/jwt-simple": "^0.5.32",
     "@types/passport": "^0.2.33",
     "@types/passport-jwt": "^2.0.19",
+    "@types/sequelize": "^4.0.79",
     "concurrently": "^2.2.0",
     "typescript": "^2.6.1"
   }
