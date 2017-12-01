@@ -16,7 +16,7 @@
     "jwt-simple": "^0.4.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
-    "protontype": "^2.0.0-rc.2",
+    "protontype": "^2.0.0-rc.3",
     "protontype-sequelize": "^1.0.0"
   },
   "devDependencies": {
