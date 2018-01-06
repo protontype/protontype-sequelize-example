@@ -2,7 +2,7 @@
 
 ## Run example
  - open terminal
- - git clone https://github.com/protontype/protontype-sample.git
+ - git clone https://github.com/protontype/protontype-sequelize-sample.git
  - npm install
  - npm run build
  - npm start
@@ -55,7 +55,7 @@
 
 **Cloning and install example**
 
- - git clone https://github.com/protontype/protontype-sample.git
+ - git clone https://github.com/protontype/protontype-sequelize-sample.git
 - npm install
 - npm link protontype
 - tsc
