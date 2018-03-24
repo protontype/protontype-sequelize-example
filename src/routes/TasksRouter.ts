@@ -1,6 +1,5 @@
-import { RouterFunctionParams } from 'protontype/dist/lib';
 import { TasksModel } from '../models/TasksModel';
-import { RouterClass, UseAuth, Route, Method } from 'protontype';
+import { RouterClass, UseAuth, Route, Method, RouterFunctionParams} from 'protontype';
 import { SequelizeCrudRouter } from 'protontype-sequelize';
 
 /**

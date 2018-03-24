@@ -12,4 +12,4 @@ new ProtonApplication()
     .addRouter(new DefaultRouter())
     .addRouter(new TasksRouter())
     .addRouter(new UsersRouter())
-    .bootstrap();
+    .start();

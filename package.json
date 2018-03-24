@@ -4,20 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
-    "start": "node dist/Main.js",
-    "legacy-typings": "typings install"
+    "build": "tsc",
+    "start": "node dist/Main.js"
   },
   "author": "Humberto Machado",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^4.0.39",
     "bcrypt-nodejs": "0.0.3",
     "jwt-simple": "^0.4.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
-    "protontype": "^2.0.0",
-    "protontype-sequelize": "^1.0.0",
+    "protontype": "^2.3.3",
+    "protontype-sequelize": "^1.2.0",
     "sqlite3": "^3.1.13"
   },
   "devDependencies": {
@@ -25,8 +23,8 @@
     "@types/jwt-simple": "^0.5.32",
     "@types/passport": "^0.2.33",
     "@types/passport-jwt": "^2.0.19",
-    "@types/sequelize": "^4.0.79",
+    "@types/sequelize": "^4.27.12",
     "concurrently": "^2.2.0",
-    "typescript": "^2.6.1"
+    "typescript": "^2.7.2"
   }
 }
