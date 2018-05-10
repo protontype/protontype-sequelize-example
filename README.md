@@ -1,4 +1,4 @@
-# [Protontype Framework](https://github.com/protontype/protontype) Sample using [protontype-sequelize](https://github.com/protontype/protontype-sequelize) module
+# [Protontype Framework](https://github.com/protontype/protontype) example using [protontype-sequelize](https://github.com/protontype/protontype-sequelize) module
 
 ## Run example
  - open terminal
